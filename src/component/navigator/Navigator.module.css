@@ -1,0 +1,116 @@
+.conatiner {
+    height: 80px;
+    width: 100%;
+    /* background-color: antiquewhite; */
+    position: fixed;
+    /* top: 10;
+    left: 0; */
+}
+
+.navibar {
+    max-width: 1444px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.logo {
+    height: 70px;
+}
+
+.moredown {
+    /* background-color: black; */
+    padding-top: 50px;
+}
+
+/* this is a recreation of twitter search in css */
+.form {
+    --input-text-color: #fff;
+    --input-bg-color: #283542;
+    --focus-input-bg-color: transparent;
+    --text-color: #949faa;
+    --active-color: #1b9bee;
+    --width-of-input: 200px;
+    --inline-padding-of-input: 1.2em;
+    --gap: 0.9rem;
+}
+
+/* form style */
+.form {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+/* a fancy bg for showing background and border when focus. */
+.fancybg {
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    background: var(--input-bg-color);
+    border-radius: 30px;
+    height: 100%;
+    z-index: -1;
+}
+
+/* label styling */
+label {
+    width: 100%;
+    padding: 8px;
+    height: 40px;
+    padding-inline: var(--inline-padding-of-input);
+    display: flex;
+    align-items: center;
+}
+
+.search {
+    position: absolute;
+}
+
+/* styling search-icon */
+.search {
+    fill: var(--text-color);
+    left: var(--inline-padding-of-input);
+}
+
+/* svg -- size */
+svg {
+    width: 17px;
+}
+
+/* styling of input */
+.input {
+    margin-inline: min(2em, calc(var(--inline-padding-of-input) + var(--gap)));
+    background: none;
+    border: none;
+    color: black;
+}
+
+.input:focus {
+    outline: none;
+}
+
+.input::placeholder {
+    color: var(--text-color)
+}
+
+/* input background change in focus */
+.input:focus~.fancybg {
+    border: 1px solid var(--active-color);
+    background: var(--focus-input-bg-color);
+}
+
+
+
+/* this is for the default background in input,when selecting autofill options -- you can remove this code if you do not want to override the browser style.  */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-transition: "color 9999s ease-out, background-color 9999s ease-out";
+    -webkit-transition-delay: 9999s;
+}
