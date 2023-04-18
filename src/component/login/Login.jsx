@@ -3,11 +3,19 @@ import classes from './Login.module.css'
 import { GoMail } from "react-icons/go";
 import { useDispatch, useSelector } from 'react-redux';
 import Creataccount from '../Creataccount/Creataccount';
-import { login } from '../../features/User';
+import { login, open } from '../../features/User';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+    const navigator = useNavigate()
     const { isopen } = useSelector(state => state.user);
     const dispatch = useDispatch();
+    const singin = () => {
+        const close = dispatch(login(true))
+        navigator('/')
+        localStorage.setItem(JSON.stringify('name', dispatch(login(true))))
+    }
+    console.log(isopen);
     return (
         <div>
             <form className={classes.formcontainer}>
@@ -35,39 +43,38 @@ const Login = () => {
                                 <path fill="#141B34" d="M21.2046 15.1045L20.6242 15.6956V15.6956L21.2046 15.1045ZM21.4196 16.4767C21.7461 16.7972 22.2706 16.7924 22.5911 16.466C22.9116 16.1395 22.9068 15.615 22.5804 15.2945L21.4196 16.4767ZM18.0228 15.1045L17.4424 14.5134V14.5134L18.0228 15.1045ZM18.2379 18.0387C18.5643 18.3593 19.0888 18.3545 19.4094 18.028C19.7299 17.7016 19.7251 17.1771 19.3987 16.8565L18.2379 18.0387ZM14.2603 20.7619C13.7039 21.3082 12.7957 21.3082 12.2394 20.7619L11.0786 21.9441C12.2794 23.1232 14.2202 23.1232 15.4211 21.9441L14.2603 20.7619ZM12.2394 20.7619C11.6914 20.2239 11.6914 19.358 12.2394 18.82L11.0786 17.6378C9.86927 18.8252 9.86927 20.7567 11.0786 21.9441L12.2394 20.7619ZM12.2394 18.82C12.7957 18.2737 13.7039 18.2737 14.2603 18.82L15.4211 17.6378C14.2202 16.4587 12.2794 16.4587 11.0786 17.6378L12.2394 18.82ZM14.2603 18.82C14.8082 19.358 14.8082 20.2239 14.2603 20.7619L15.4211 21.9441C16.6304 20.7567 16.6304 18.8252 15.4211 17.6378L14.2603 18.82ZM20.6242 15.6956L21.4196 16.4767L22.5804 15.2945L21.785 14.5134L20.6242 15.6956ZM15.4211 18.82L17.8078 16.4767L16.647 15.2944L14.2603 17.6377L15.4211 18.82ZM17.8078 16.4767L18.6032 15.6956L17.4424 14.5134L16.647 15.2945L17.8078 16.4767ZM16.647 16.4767L18.2379 18.0387L19.3987 16.8565L17.8078 15.2945L16.647 16.4767ZM21.785 14.5134C21.4266 14.1616 21.0998 13.8383 20.7993 13.6131C20.4791 13.3732 20.096 13.1716 19.6137 13.1716V14.8284C19.6145 14.8284 19.619 14.8273 19.6395 14.8357C19.6663 14.8466 19.7183 14.8735 19.806 14.9391C19.9969 15.0822 20.2326 15.3112 20.6242 15.6956L21.785 14.5134ZM18.6032 15.6956C18.9948 15.3112 19.2305 15.0822 19.4215 14.9391C19.5091 14.8735 19.5611 14.8466 19.5879 14.8357C19.6084 14.8273 19.6129 14.8284 19.6137 14.8284V13.1716C19.1314 13.1716 18.7483 13.3732 18.4281 13.6131C18.1276 13.8383 17.8008 14.1616 17.4424 14.5134L18.6032 15.6956Z"></path>
                             </svg>
                             <input placeholder="Password" title="Password" name="input-name" type="password" className={classes.inputfield} id="password_field" />
-                        </div></>) : ((<Creataccount />))
-                }
-                {
-                    isopen ? (<button onClick={() => dispatch(login(true))} title="Sign In" type="submit" className={classes.signinbtn}>
-                        <span>Sign In</span>
-                    </button>) : (<></>)
-                }
+                        </div>
 
+                        <button onClick={singin()} title="Sign In" type="submit" className={classes.signinbtn}>
+                            <span>Sign In</span>
+                        </button>
+                        <div className={classes.separator}>
+                            <hr className={classes.line} />
+                            <span>Or</span>
+                            <hr className={classes.line} />
+                        </div>
+                        <button title="Sign In" type="submit" className={classes.signinggl}>
+                            <svg height="18" width="18" viewBox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
+                                <defs>
+                                    <path d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" id="A"></path>
+                                </defs>
+                                <clipPath id="B"></clipPath>
+                                <g transform="matrix(.727273 0 0 .727273 -.954545 -1.45455)">
+                                    <path fill="#fbbc05" clip-path="url(#B)" d="M0 37V11l17 13z"></path>
+                                    <path fill="#ea4335" clip-path="url(#B)" d="M0 11l17 13 7-6.1L48 14V0H0z"></path>
+                                    <path fill="#34a853" clip-path="url(#B)" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
+                                    <path fill="#4285f4" clip-path="url(#B)" d="M48 48L17 24l-4-3 35-10z"></path>
+                                </g>
+                            </svg>
+                            <span>Sign In with Google</span>
+                        </button>
 
-                <div className={classes.separator}>
-                    <hr className={classes.line} />
-                    <span>Or</span>
-                    <hr className={classes.line} />
-                </div>
-                <button title="Sign In" type="submit" className={classes.signinggl}>
-                    <svg height="18" width="18" viewBox="0 0 32 32" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg">
-                        <defs>
-                            <path d="M44.5 20H24v8.5h11.8C34.7 33.9 30.1 37 24 37c-7.2 0-13-5.8-13-13s5.8-13 13-13c3.1 0 5.9 1.1 8.1 2.9l6.4-6.4C34.6 4.1 29.6 2 24 2 11.8 2 2 11.8 2 24s9.8 22 22 22c11 0 21-8 21-22 0-1.3-.2-2.7-.5-4z" id="A"></path>
-                        </defs>
-                        <clipPath id="B"></clipPath>
-                        <g transform="matrix(.727273 0 0 .727273 -.954545 -1.45455)">
-                            <path fill="#fbbc05" clip-path="url(#B)" d="M0 37V11l17 13z"></path>
-                            <path fill="#ea4335" clip-path="url(#B)" d="M0 11l17 13 7-6.1L48 14V0H0z"></path>
-                            <path fill="#34a853" clip-path="url(#B)" d="M0 37l30-23 7.9 1L48 0v48H0z"></path>
-                            <path fill="#4285f4" clip-path="url(#B)" d="M48 48L17 24l-4-3 35-10z"></path>
-                        </g>
-                    </svg>
-                    <span>Sign In with Google</span>
-                </button>
-                <button title="Sign In" type="submit" className={classes.signinapl}>
-                    <span>Creat Account</span>
-                </button>
-                <p className={classes.note}>Terms of use &amp; Conditions</p>
+                        <button title="Sign In" type="submit" onClick={() => dispatch(open(false))} className={classes.signinapl}>
+                            <span>Creat Account</span>
+                        </button>
+                        <p className={classes.note}>Terms of use &amp; Conditions</p>
+                    </>) : (<Creataccount />)
+                }
             </form>
         </div>
     )

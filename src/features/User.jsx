@@ -1,14 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const isgo = (localStorage.getItem, 'name')
+
 export const userSlice = createSlice({
     name: 'user',
-    initialState: { isopen: true, user: false },
+    initialState: { isopen: true, isgo: isgo ? isgo : false },
     reducers: {
         open: (state, action) => {
             state.isopen = action.payload
         },
         login: (state, action) => {
-            state.user = action.payload
+            state.isgo = action.payload
+            // localStorage.setItem('name', JSON.parse(state.isgo))
         }
 
     }
