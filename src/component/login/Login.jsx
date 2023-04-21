@@ -1,19 +1,21 @@
 import React from 'react'
 import classes from './Login.module.css'
-import { GoMail } from "react-icons/go";
 import { useDispatch, useSelector } from 'react-redux';
 import Creataccount from '../Creataccount/Creataccount';
-import { login, open } from '../../features/User';
+import { account, home, logout } from '../../features/User';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-    const navigator = useNavigate()
     const { isopen } = useSelector(state => state.user);
+
+    const navigator = useNavigate()
+
     const dispatch = useDispatch();
+
     const singin = () => {
-        const close = dispatch(login(true))
+        const clse = dispatch(home(true))
         navigator('/')
-        localStorage.setItem(JSON.stringify('name', dispatch(login(true))))
+        console.log(clse);
     }
     console.log(isopen);
     return (
@@ -45,7 +47,7 @@ const Login = () => {
                             <input placeholder="Password" title="Password" name="input-name" type="password" className={classes.inputfield} id="password_field" />
                         </div>
 
-                        <button onClick={singin()} title="Sign In" type="submit" className={classes.signinbtn}>
+                        <button onClick={singin} title="Sign In" type="submit" className={classes.signinbtn}>
                             <span>Sign In</span>
                         </button>
                         <div className={classes.separator}>
@@ -69,7 +71,7 @@ const Login = () => {
                             <span>Sign In with Google</span>
                         </button>
 
-                        <button title="Sign In" type="submit" onClick={() => dispatch(open(false))} className={classes.signinapl}>
+                        <button title="Sign In" type="submit" onClick={() => dispatch(account(false))} className={classes.signinapl}>
                             <span>Creat Account</span>
                         </button>
                         <p className={classes.note}>Terms of use &amp; Conditions</p>

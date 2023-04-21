@@ -1,12 +1,13 @@
 import React from 'react'
 import classes from './Creataccount.module.css'
 
+
 const Creataccount = () => {
     return (
         <div>
             <form className={classes.form}>
                 <p className={classes.title}>Register </p>
-                <p className={classes.message}>Signup now and get full access to our app. </p>
+                {/* <p className={classes.message}>Signup now and get full access to our app. </p> */}
                 <div className={classes.flex}>
                     <label>
                         <input required="" placeholder="" type="text" className={classes.input} />
