@@ -13,6 +13,7 @@ const Navigator = () => {
     const navigat = useNavigate()
     const dispatch = useDispatch()
     const [isopen, setIopen] = useState(false)
+    const Menus = ['Data Science Courses', 'Software Engineering', 'Doctorate', 'AI & ML', 'Marketing', 'Business Analytics', 'Project Managment']
 
     return (
         <div>
@@ -23,6 +24,13 @@ const Navigator = () => {
                         <b>EXPLORE COURSES
                             <i className={classes.moredown}>
                                 <MdKeyboardArrowDown />
+                                {
+                                    Menus.map((menu) => {
+                                        return (
+                                            <li>{menu}</li>
+                                        )
+                                    })
+                                }
                             </i>
                         </b>
                     </div>
@@ -82,7 +90,7 @@ const Navigator = () => {
                             (<div className={classes.box1}>
                                 <div className={classes.box2}>
                                     <p className={classes.logout} onClick={() => {
-                                        const conform = window.confirm("Are You Confprm To Logout")
+                                        const conform = window.confirm("Are You Confirm To Logout")
                                         if (conform) {
                                             dispatch(logout(false))
                                             navigat('/login')

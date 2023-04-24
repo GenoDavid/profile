@@ -7,6 +7,7 @@ import Portal from './Portal'
 import Login from './component/login/Login'
 import { useSelector } from 'react-redux'
 import Error from './component/Error'
+import Register from './component/creataccount/Register'
 
 function App() {
   const { isgo } = useSelector(state => state.user)
@@ -22,6 +23,7 @@ function App() {
             </Route>) :
               (<>
                 <Route path='/login' element={<Login />} />
+                <Route path='/register' element={<Register />} />
                 <Route path='/' element={<Navigate to='/login' />} />
               </>)
           }
