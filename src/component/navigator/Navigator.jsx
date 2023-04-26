@@ -1,39 +1,55 @@
-import React, { useState } from 'react'
-import classes from './Navigator.module.css'
-import image from '../../image/Untitled-3.png'
+import React, { useState } from 'react';
+import classes from './Navigator.module.css';
+import image from '../../image/Untitled-3.png';
 import { CgSearch } from "react-icons/cg";
 import { MdKeyboardArrowDown } from 'react-icons/md';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logout } from '../../features/User';
 import { Alert } from 'react-bootstrap';
+import { useRef } from 'react'
 
 
 const Navigator = () => {
+
     const navigat = useNavigate()
     const dispatch = useDispatch()
     const [isopen, setIopen] = useState(false)
-    const Menus = ['Data Science Courses', 'Software Engineering', 'Doctorate', 'AI & ML', 'Marketing', 'Business Analytics', 'Project Managment']
+
+
+    const { Menus } = useSelector(state => state.image)
+    const [open, setOpen] = useState(false)
+    const menuref = useRef()
+    const listref = useRef()
+
+    window.addEventListener('click', (e) => {
+        if (e.target !== listref.current && e.target !== menuref.current) { setOpen(false) }
+    })
 
     return (
         <div>
-            <div className={classes.conatiner}>
+            <div className={classes.conatiner} >
                 <div className={classes.navibar}>
                     <img src={image} alt='logo' className={classes.logo} />
                     <div className={classes.explore}>
-                        <b>EXPLORE COURSES
-                            <i className={classes.moredown}>
-                                <MdKeyboardArrowDown />
-                                {
-                                    Menus.map((menu) => {
-                                        return (
-                                            <li>{menu}</li>
-                                        )
-                                    })
-                                }
-                            </i>
-                        </b>
+                        <b>EXPLORE COURSES</b>
+                        <i className={classes.moredown}>
+                            <MdKeyboardArrowDown ref={menuref} onClick={() => setOpen(true)} />
+                            {
+                                open && (<div ref={listref} className=''>
+                                    {
+                                        Menus.map((menu) => {
+                                            return (
+                                                <li key={menu} onClick={() => setOpen(false)} className={classes.popup}>{menu}</li>
+                                            )
+                                        })
+                                    }
+                                </div>)
+                            }
+                        </i>
+
                     </div>
+
                     <div className={classes.blogs}>
                         <b>BLOGS
                             <i className={classes.moredown}>
@@ -41,6 +57,7 @@ const Navigator = () => {
                             </i>
                         </b>
                     </div>
+
                     <div className={classes.mba}>
                         <b>MANAGMENT&DEGREE
                             <i className={classes.moredown}>
@@ -55,14 +72,15 @@ const Navigator = () => {
                             </i>
                         </b>
                     </div>
+
                     <div className={classes.skill}>
                         <b>EXPLORE SKILL
                             <i className={classes.moredown}>
                                 <MdKeyboardArrowDown />
                             </i>
                         </b>
-
                     </div>
+
                     <div className={classes.more}>
                         <b>MORE
                             <i className={classes.moredown}>
@@ -70,6 +88,7 @@ const Navigator = () => {
                             </i>
                         </b>
                     </div>
+
                     <form className={classes.form}>
                         <label for="search">
                             <div className={classes.search}>
@@ -81,32 +100,28 @@ const Navigator = () => {
                             </div>
                             <input className={classes.input} type="text" required="" placeholder="Search" id="search" />
                             <div className={classes.fancybg}></div>
-
                         </label>
                     </form>
 
                     {
                         isopen ?
                             (<div className={classes.box1}>
-                                <div className={classes.box2}>
-                                    <p className={classes.logout} onClick={() => {
-                                        const conform = window.confirm("Are You Confirm To Logout")
-                                        if (conform) {
-                                            dispatch(logout(false))
-                                            navigat('/login')
-                                        }
-                                        console.log(dispatch);
-                                    }}>Logout</p>
-                                </div>
+                                <p className={classes.logout} onClick={() => {
+                                    const conform = window.confirm("Are You Confirm To Logout")
+                                    if (conform) {
+                                        dispatch(logout(false))
+                                        navigat('/login')
+                                    }
+                                    // console.log(dispatch);
+                                }} >Logout</p>
                             </div>)
                             : (<></>)
                     }
+
                     <p onClick={() => setIopen(true)}> Logout</p>
                 </div>
             </div >
-
         </div>
-
     )
 }
 

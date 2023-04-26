@@ -20,7 +20,8 @@ export const userSlice = createSlice({
         register: (state, action) => {
             state.isopen = action.payload
             localStorage.setItem('open', JSON.parse(state.isopen))
-        }
+        },
+
     }
 })
 export const { account, home, logout } = userSlice.actions;

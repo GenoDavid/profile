@@ -22,6 +22,18 @@
     height: 70px;
 }
 
+.popup {
+    list-style: none;
+    background-color: gray;
+    color: black;
+    cursor: pointer;
+}
+
+.popup:hover {
+    background-color: lightyellow;
+    color: lightcoral;
+}
+
 .moredown {
     /* background-color: black; */
     padding-top: 50px;
