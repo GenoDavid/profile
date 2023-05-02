@@ -143,7 +143,7 @@ const Navigator = () => {
 
 
 
-                    <p onClick={() => setIopen(true)}> Logout</p>
+                    {/* <p onClick={() => setIopen(true)}> Logout</p> */}
                 </div>
             </div >
         </div>
