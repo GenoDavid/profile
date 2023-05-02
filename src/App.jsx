@@ -8,6 +8,7 @@ import Login from './component/login/Login'
 import { useSelector } from 'react-redux'
 import Error from './component/Error'
 import Register from './component/creataccount/Register'
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css"
 
 function App() {
   const { isgo } = useSelector(state => state.user)

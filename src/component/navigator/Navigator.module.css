@@ -23,10 +23,29 @@
 }
 
 .popup {
+    position: absolute;
     list-style: none;
     background-color: gray;
     color: black;
     cursor: pointer;
+    /* height: 50px; */
+}
+
+.popup ul li {
+    list-style: none;
+}
+
+.explore {
+    transition: 0.9s all ease-in-out;
+    background-color: #1b9bee;
+}
+
+.hover {
+    display: none;
+}
+
+.hover:hover {
+    display: block;
 }
 
 .popup:hover {
@@ -37,6 +56,7 @@
 .moredown {
     /* background-color: black; */
     padding-top: 50px;
+    /* position: relative; */
 }
 
 /* this is a recreation of twitter search in css */

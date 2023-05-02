@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { logout } from '../../features/User';
 import { Alert } from 'react-bootstrap';
 import { useRef } from 'react'
+import { useEffect } from 'react';
 
 
 const Navigator = () => {
@@ -19,24 +20,38 @@ const Navigator = () => {
 
     const { Menus } = useSelector(state => state.image)
     const [open, setOpen] = useState(false)
-    const menuref = useRef()
-    const listref = useRef()
+    // const menuref = useRef()
+    // const listref = useRef()
 
-    window.addEventListener('click', (e) => {
-        if (e.target !== listref.current && e.target !== menuref.current) { setOpen(false) }
-    })
+    // window.addEventListener('click', (e) => {
+    //     if (e.target !== listref.current || e.target !== menuref.current) { setOpen(false) }
+    // })
 
+    // useEffect(() => {
+    //     const handler = (e) => {
+    //         if (menuref.current && menuref.current.contains(e.target)) {
+    //             setOpen(false);
+    //             console.log(e);
+    //         }
+    //     };
+
+    //     document.addEventListener("mousedown", handler);
+
+    //     return () => {
+    //         document.removeEventListener("mousedown", handler);
+    //     };
+    // }, [menuref]);
     return (
         <div>
-            <div className={classes.conatiner} >
+            <div classNam e={classes.conatiner} >
                 <div className={classes.navibar}>
                     <img src={image} alt='logo' className={classes.logo} />
-                    <div className={classes.explore}>
+                    <div className={classes.explore} onMouseLeave={() => setOpen(!open)} onMouseEnter={() => setOpen(!open)}>
                         <b>EXPLORE COURSES</b>
                         <i className={classes.moredown}>
-                            <MdKeyboardArrowDown ref={menuref} onClick={() => setOpen(true)} />
-                            {
-                                open && (<div ref={listref} className=''>
+                            <MdKeyboardArrowDown />
+                            {/* {
+                                open && (<div className=''>
                                     {
                                         Menus.map((menu) => {
                                             return (
@@ -45,7 +60,18 @@ const Navigator = () => {
                                         })
                                     }
                                 </div>)
-                            }
+                            } */}
+                            <div className={classes.popup}>
+                                {
+                                    open && Menus.map((menu) => {
+                                        return (
+                                            <ul>
+                                                <li key={menu} onClick={() => setOpen(false)}>{menu}</li>
+
+                                            </ul>)
+                                    })
+                                }
+                            </div>
                         </i>
 
                     </div>

@@ -2,6 +2,7 @@ import React from 'react'
 import classes from './Home.module.css'
 import { useSelector } from 'react-redux'
 import Banner from '../component/banner/Banner'
+import Introduction from '../component/intro/Introduction'
 
 const Home = () => {
     const { banner } = useSelector(state => state.image)
@@ -19,6 +20,9 @@ const Home = () => {
                         })
                     }
                 </div>
+            </div>
+            <div>
+                <Introduction />
             </div>
         </div>
     )
