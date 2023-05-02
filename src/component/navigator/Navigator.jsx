@@ -129,20 +129,19 @@ const Navigator = () => {
                         </label>
                     </form>
 
-                    {
-                        isopen ?
-                            (<div className={classes.box1}>
-                                <p className={classes.logout} onClick={() => {
-                                    const conform = window.confirm("Are You Confirm To Logout")
-                                    if (conform) {
-                                        dispatch(logout(false))
-                                        navigat('/login')
-                                    }
-                                    // console.log(dispatch);
-                                }} >Logout</p>
-                            </div>)
-                            : (<></>)
-                    }
+
+                    (<div className={classes.box1}>
+                        <p className={classes.logout} onClick={() => {
+                            const conform = window.confirm("Are You Confirm To Logout")
+                            if (conform) {
+                                dispatch(logout(false))
+                                navigat('/login')
+                            }
+                            // console.log(dispatch);
+                        }} >Logout</p>
+                    </div>)
+
+
 
                     <p onClick={() => setIopen(true)}> Logout</p>
                 </div>
