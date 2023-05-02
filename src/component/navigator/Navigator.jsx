@@ -130,7 +130,7 @@ const Navigator = () => {
                     </form>
 
 
-                    (<div className={classes.box1}>
+                    <div className={classes.box1}>
                         <p className={classes.logout} onClick={() => {
                             const conform = window.confirm("Are You Confirm To Logout")
                             if (conform) {
@@ -139,7 +139,7 @@ const Navigator = () => {
                             }
                             // console.log(dispatch);
                         }} >Logout</p>
-                    </div>)
+                    </div>
 
 
 
