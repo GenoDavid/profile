@@ -3,6 +3,8 @@ import classes from './Introduction.module.css'
 import { Col, Row } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Form from '../form/Form'
+import Development from '../devlopment/Development'
+import Commend from '../command/Commend'
 
 const Introduction = () => {
   return (
@@ -58,6 +60,11 @@ const Introduction = () => {
                 <span>Practicing web development projects with code bridges the gap between theoretical knowledge and practical application, and the best way to grasp web development concepts is by working on real-world projects. Web development projects for final-year students or fresh graduates and API project ideas for beginners help them test their theoretical knowledge and enhance their practical skills. </span>
               </div>
             </div>
+            <div className={classes.imgdev}>
+              <img className={classes.imgcontent} src='https://s3.ap-south-1.amazonaws.com/upgrad.prod.blog/blog/wp-content/uploads/2021/03/12135101/Full-Stack-Development-1-e1620827512583.png' alt='img' id='img' />
+            </div>
+            <Development />
+            <Commend />
           </Col>
           <Col lg="4">
             <div className={classes.leftbox}>
@@ -86,6 +93,60 @@ const Introduction = () => {
               <img className={classes.leftimage} src='https://www.upgrad.com/blog/wp-content/uploads/2023/01/FSD.png' />
             </div>
             <Form />
+            <div className={classes.leftbox}>
+              <h4 className={classes.leftcontent}>Popular Software Devolopment Skills </h4>
+              <hr className={classes.line} />
+
+              <div className={classes.leftpara}>
+                <p className={classes.leftpara1}>Ract Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p className={classes.leftpara1}>Javascript Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Core Java Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>ReactJS Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>NodeJS Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Blockchain Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>SQL Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Fullstack Development Courses</p>
+              </div>
+
+              <div className={classes.leftpara}>
+                <p>Big Data Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Devops Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>NFT Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Cyber Security Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Cloud Computing Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Database Design Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Crypto Courses</p>
+              </div>
+              <div className={classes.leftpara}>
+                <p>Python Courses</p>
+              </div>
+            </div>
           </Col>
         </Row>
 

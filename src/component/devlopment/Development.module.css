@@ -1,0 +1,61 @@
+.container {
+    margin-top: 35px;
+}
+
+.heading {
+    font-weight: 400;
+    font-size: 60px;
+    line-height: 100px;
+}
+
+.content {
+    width: 800px;
+}
+
+.ideas {
+    margin-top: 25px;
+}
+
+.para {
+    font-size: 20px;
+    line-height: 35px;
+}
+
+.free {
+    text-decoration: none;
+}
+
+.free:hover {
+
+    color: #ff5757;
+}
+
+.paras {
+    font-style: italic;
+}
+
+.ideases {
+    margin-top: 25px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.thead {
+    border: 1px solid;
+}
+
+.proto {
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.let {
+    width: 750px;
+    padding: 20px;
+    margin: 20px;
+    display: flex;
+    background-color: #fff;
+    border: 1px solid #e4e4e4;
+    box-shadow: 10px 10px 20px #e6e6e6ab;
+    /* background-color: antiquewhite; */
+}
