@@ -21,7 +21,6 @@ const Form = () => {
     const { register, handleSubmit, formState: { errors } } = useForm({
 
     });
-    // console.log(handleSubmit);
 
     useEffect(() => {
 
@@ -33,10 +32,8 @@ const Form = () => {
             <hr className={classes.line} />
             <div className={classes.formcontrol}>
                 <form className={classes.valid} onSubmit={handleSubmit(async (data) => {
-                    // async () => {
                     const user = await axios.post('https://63fcbd648ef914c5559e51fc.mockapi.io/upgrad', data)
                     console.log(user.data);
-                    // }
                 })}>
                     <input {...register('firstname')} placeholder='Firstname' type='text' className={classes.name} />
                     <input {...register('lastname')} placeholder='Lastname' type='text' className={classes.name} />
